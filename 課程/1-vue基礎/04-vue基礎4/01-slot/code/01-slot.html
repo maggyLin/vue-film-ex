@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+
+<script type="text/javascript" src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+
+      <!-- 沒有定義slot，子組件會直接覆蓋掉 -->
+      <child>
+        <div >aaaaaaaaaaaa</div>
+        <div >bbbbbbbbbbbb</div>
+      </child>
+      <br>
+      
+      <!-- 父祖件代碼放入子組件中 -->
+      <child>
+        <div slot="a">aaaaaaaaaaaa</div>
+        <div slot="b">bbbbbbbbbbbb</div>
+      </child>
+      <br>
+
+      <!-- 只有一個slot不用name命名 -->
+      <swiper>
+        <li v-for="data in datalist">
+          {{data}}
+        </li>
+      </swiper>
+     
+    </div>
+   
+
+    <script type="text/javascript">
+    
+       Vue.component("child",{
+         template:`<div>
+          <slot name="a"></slot>
+            child
+          <slot name="b"></slot>  
+          </div>`
+       })
+
+       Vue.component("swiper",{
+         template:`<div>
+            <ul>
+             <slot></slot>
+            </ul>
+          </div>`
+       })
+
+       new Vue({
+        el:"#box",
+        data:{
+          datalist:["11111","22222","333333"]
+        }
+       })
+    </script>
+</body>
+</html>
