@@ -33,9 +33,8 @@ export default {
 
   beforeMount () {
     // console.log("hidetabbar","发麻药了")
-    // bus.$emit("maizuo",false)  //使用共用bus方法
-    // this.$store.state.isTabbarShow = false
-
+    // bus.$emit("tabbarsta",false)  //使用共用bus方法
+    // this.$store.state.isTabbarShow = false //直接修改store
     this.$store.commit(HIDE_TABBAR_MUTATION, false)// 第一个参数就是mutation名字
   },
 
@@ -55,8 +54,8 @@ export default {
 
   beforeDestroy () {
     console.log('showtabbar')
-    // bus.$emit("maizuo",true)
-    // this.$store.state.isTabbarShow = true //使用共用bus 方法
+    // bus.$emit("tabbarsta",true)  //使用共用bus 方法
+    // this.$store.state.isTabbarShow = true  //直接修改store
     this.$store.commit(SHOW_TABBAR_MUTATION, true)// 第一个参数就是mutation名字
   },
 

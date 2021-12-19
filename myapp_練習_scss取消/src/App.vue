@@ -1,6 +1,9 @@
 <template>
   <div id="app">
 
+    <!-- 使用bus -->
+    <!-- <tabbar v-show="isShow"></tabbar> -->
+
     <tabbar v-show="isTabbarShow"></tabbar>
     
     <!-- 路由容器 -->
@@ -19,7 +22,7 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
-      // isShow:true
+      // isShow:true //使用bus
     }
   },
   methods: {
@@ -45,7 +48,7 @@ export default {
 
   // beforeMount() {
   //   console.log("从这里开始订阅消息了")
-  //   bus.$on("maizuo",(data)=>{   //使用共用bus方法
+  //   bus.$on("tabbarsta",(data)=>{   //使用共用bus方法
   //     // console.log("被通知了maizuo",data)
   //     this.isShow = data;
   //   })
